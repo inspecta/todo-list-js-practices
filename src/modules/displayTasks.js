@@ -6,16 +6,16 @@ const display = document.querySelector('.display');
 
 const displayTasks = (tasksObj) => {
   const tasksLists = document.createElement('ul');
-  tasksLists.classList.add('tasks-list');
+  tasksLists.classList.add('tasks-list flex flex-row');
   display.appendChild(tasksLists);
   const taskDetails = document.createElement('li');
   taskDetails.classList.add('task-list-items');
   tasksLists.appendChild(taskDetails);
 
   taskDetails.innerHTML = `
-    <div class='task'>
+    <div class='task flex flex-row'>
       <input type='checkbox' class='checkbox' id='${tasksObj.index}'/>
-      <input type='text' value='${tasksObj.description}' id='input-display-${tasksObj.index}' data-id='${tasksObj.index}' class='input-display'/>
+      <input type='text' value='${tasksObj.description}' id='input-display-${tasksObj.index}' data-id='${tasksObj.index}' class='input-display border-outline'/>
     </div>
     <i class="fa-solid fa-trash-can" data-id="${tasksObj.index}" id="btn-${tasksObj.index}"></i>
   `;
@@ -62,14 +62,14 @@ const displayTasks = (tasksObj) => {
   });
 };
 
-export const footer = () => {
+export const footerEl = () => {
   const todoListContainer = document.querySelector('.todo-list');
 
   const lowDiv = document.createElement('div');
-  lowDiv.classList.add('footer');
+  lowDiv.classList.add('footer flex flex-column');
   todoListContainer.appendChild(lowDiv);
   lowDiv.innerHTML = `
-      <button id='clear-tasks'>Clear all completed.</button>
+      <button id='clear-tasks border-outline'>Clear all completed.</button>
     `;
 
   const clearTasks = document.getElementById('clear-tasks');
